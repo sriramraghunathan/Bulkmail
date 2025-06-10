@@ -5,7 +5,13 @@ const mongoose = require("mongoose");
 
 const app = express();
 
-app.use(cors());
+app.use(
+  cors({
+    origin: "https://bulkmail-five.vercel.app",
+    methods: ["GET", "POST"],
+    credentials: true,
+  })
+);
 app.use(express.json()); //Middleware
 
 //Contencting DB
