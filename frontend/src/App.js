@@ -37,17 +37,19 @@ const App=()=>{
     }
   function send(){
     setstatus(true)
-    axios.post("http://localhost:5000/sendemail",{msg:msg,emailList:emailList})
-    .then(function(data){
-      if(data.data === true)
-      {
-        alert("Email Send Successfully")
-        setstatus(false)
-      }
-      else{
-        alert("Failed")
-      }
-    })
+    axios
+      .post("https://bulkmail-npon.onrender.com/sendemail", {
+        msg: msg,
+        emailList: emailList,
+      })
+      .then(function (data) {
+        if (data.data === true) {
+          alert("Email Send Successfully");
+          setstatus(false);
+        } else {
+          alert("Failed");
+        }
+      });
   }
   return (
     <>
